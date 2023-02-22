@@ -1,9 +1,15 @@
+import Navigation from './Navigation';
 import './App.css';
+import {useState} from 'react';
+import Calculator from './component/Calculator';
 
 function App() {
+  const [todo, setTodo] = useState(false);
   return (
     <div className="App">
-      <h1 className='text-xl text-[orange] font-bold'>Hello, Using Tailwind CSS</h1>
+
+     <Navigation />
+      
     </div>
   );
 }
