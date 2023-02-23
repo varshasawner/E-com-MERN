@@ -5,7 +5,8 @@ export default function GithubUserCard(){
     const [userName, setUserName] = useState("");
     const [userImage, setUserImage] = useState("");
     const [userlogin, setUserLogin] = useState("");
-    // const [userRepo, setUserRepo] = useState([]);
+    const [userRepo, setUserRepo] = useState("");
+    const [getRepo, setGetRepo] = useState([]);
 
 
     const addUser = () => {
@@ -17,8 +18,13 @@ export default function GithubUserCard(){
             setUserName(res.name)
             setUserImage(res.avatar_url)
             setUserLogin(res.login)
-            // setUserRepo(res.repos);
-            // console.log(userRepo)
+            setUserRepo(res.repos_url);
+            console.log(userRepo);
+            fetch(userRepo)
+            .then((res)=>{ return (res.json())})
+            .then((res) => { setGetRepo(res)});
+
+            console.log(getRepo)
         });
     }
 
@@ -35,8 +41,8 @@ export default function GithubUserCard(){
                 <p>{userName}</p>
                 {/* <ol>
                     {
-                userRepo.map((i)=>{
-                    <li>{i[0].id}</li>
+                getRepo.map((i)=>{
+                    return <li>{i}</li>
                 })
                 }</ol> */}
             </div>
