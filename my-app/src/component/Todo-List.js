@@ -15,8 +15,8 @@ export default function ToDoList(){
         setItem("");
     }
 
-    const removeItem = () => {
-
+    const removeItem = (index) => {
+        setItem(list.splice(index, 1))
     }
 
     return(
@@ -27,7 +27,7 @@ export default function ToDoList(){
             <ol>
                 {
                     list.map((a, index)=>{
-                        return <li key={index}>{a} <button onClick={removeItem}>delete</button></li>
+                        return <li key={index}>{a} <button onClick={() => removeItem(index)}>delete</button></li>
                     })
                 }
             </ol>

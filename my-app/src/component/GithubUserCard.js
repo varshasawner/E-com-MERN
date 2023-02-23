@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function GithubUserCard(){
     const [user, setUser] = useState("");
@@ -7,6 +7,10 @@ export default function GithubUserCard(){
     const [userlogin, setUserLogin] = useState("");
     const [userRepo, setUserRepo] = useState("");
     const [getRepo, setGetRepo] = useState([]);
+
+    useEffect(()=>{
+        console.log(getRepo)
+    }, [getRepo])
 
 
     const addUser = () => {
@@ -20,11 +24,11 @@ export default function GithubUserCard(){
             setUserLogin(res.login)
             setUserRepo(res.repos_url);
             console.log(userRepo);
-            fetch(userRepo)
+            fetch(res.repos_url)
             .then((res)=>{ return (res.json())})
             .then((res) => { setGetRepo(res)});
 
-            console.log(getRepo)
+            // console.log(getRepo)
         });
     }
 
@@ -39,12 +43,12 @@ export default function GithubUserCard(){
                 <a href={a}><img src={userImage} /></a>
                 
                 <p>{userName}</p>
-                {/* <ol>
+                <ol>
                     {
                 getRepo.map((i)=>{
-                    return <li>{i}</li>
+                    return <li keys={i.name}>{i.name}</li>
                 })
-                }</ol> */}
+                }</ol>
             </div>
         </>
     )
