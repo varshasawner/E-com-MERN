@@ -9,13 +9,13 @@ function Navigation() {
   return (
     <div className="App">
 
-      {
+      {/* {
         todo && <ToDoList /> 
-      }
+      } */}
       {
         calculator && <Calculator />
       }
-      <button onClick={()=>setTodo(true)}>To-Do List</button>
+      {/* <button onClick={()=>setTodo(true)}>To-Do List</button> */}
       <button onClick={()=>setCalculator(true)}>Calculator</button>
       
     </div>
