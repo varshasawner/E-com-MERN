@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function GithubUserCard() {
     const [user, setUser] = useState("");
@@ -8,23 +8,27 @@ export default function GithubUserCard() {
     const [userRepo, setUserRepo] = useState("");
     const [getRepo, setGetRepo] = useState([]);
 
+    useEffect(()=>{
+        console.log(getRepo)
+    }, [getRepo])
 
-    const addUser = () => {
+
+    function addUser() {
         // console.log(`https://api.github.com/users/${user}`)
         fetch(`https://api.github.com/users/${user}`)
             .then((res) => { return (res.json()) })
             .then((res) => {
                 // console.log(res);
-                setUserName(res.name)
-                setUserImage(res.avatar_url)
-                setUserLogin(res.login)
+                setUserName(res.name);
+                setUserImage(res.avatar_url);
+                setUserLogin(res.login);
                 setUserRepo(res.repos_url);
                 console.log(userRepo);
-                fetch(userRepo)
-                    .then((res) => { return (res.json()) })
-                    .then((res) => { setGetRepo(res) });
+                fetch(res.repos_url)
+                    .then((res) => { return (res.json()); })
+                    .then((res) => { setGetRepo(res); });
 
-                console.log(getRepo)
+                // console.log(getRepo)
             });
     }
 
@@ -41,10 +45,10 @@ export default function GithubUserCard() {
                 <p>{userName}</p>
                 <ol>
                     {
-                        getRepo.map((i, index) => {
-                            return <li keys={index}>{i}</li>
-                        })
-                    }</ol>
+                getRepo.map((i)=>{
+                    return <li keys={i.name}>{i.name}</li>
+                })
+                }</ol>
             </div>
         </>
     )

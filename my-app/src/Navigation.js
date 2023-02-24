@@ -1,4 +1,4 @@
-import ToDoList from './component/To-doList';
+import ToDoList from './component/Todo-List';
 import './App.css';
 import {useState} from 'react';
 import Calculator from './component/Calculator';
@@ -8,24 +8,34 @@ function Navigation() {
   const [todo, setTodo] = useState(false);
   const [calculator, setCalculator] = useState(false);
   const [github, setGithub] = useState(false);
+  const [activeComponent, setActiveComponent] = useState("todo");
 
   return (
     <div className="App">
 
-      {/* {
-        todo && <ToDoList /> 
-      } */}
-
       {
-        github && <GithubUserCard />
+        activeComponent === "todo" && <ToDoList /> 
       }
 
-      {/* {
-        calculator && <Calculator />
-      } */}
-      {/* <button onClick={()=>setTodo(true)}>To-Do List</button> */}
-      {/* <button onClick={()=>setCalculator(true)}>Calculator</button> */}
-      <button onClick={()=>setGithub(true)}>GitHUb</button>
+      {
+        activeComponent === "github" && <GithubUserCard />
+      }
+
+      {
+        activeComponent === "calculator" && <Calculator />
+      }
+      <a href="#" onClick={()=>{
+        setActiveComponent("todo")
+        window.history.pushState('todo', 'Todo', '/todo')
+      }}>To-Do List</a>
+      <a href="#" onClick={()=>{
+        setActiveComponent("calculator")
+        window.history.pushState('calculator', 'Calculator', '/calculator')
+      }}>Calculator</a>
+      <a href="#" onClick={()=>{
+        setActiveComponent("github")
+        window.history.pushState('github', 'Github', '/github')
+      }}>GitHUb</a>
       
     </div>
   );
