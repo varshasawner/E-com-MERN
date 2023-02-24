@@ -3,6 +3,7 @@ import './App.css';
 import {useState} from 'react';
 import Calculator from './component/Calculator';
 import GithubUserCard from './component/GithubUserCard';
+import Cart from './component/Cart';
 
 function Navigation() {
   const [todo, setTodo] = useState(false);
@@ -24,6 +25,10 @@ function Navigation() {
       {
         activeComponent === "calculator" && <Calculator />
       }
+
+      {
+        activeComponent === "cart" && <Cart />
+      }
       <a href="#" onClick={()=>{
         setActiveComponent("todo")
         window.history.pushState('todo', 'Todo', '/todo')
@@ -36,6 +41,11 @@ function Navigation() {
         setActiveComponent("github")
         window.history.pushState('github', 'Github', '/github')
       }}>GitHUb</a>
+
+      <a href="#" onClick={()=>{
+        setActiveComponent("cart")
+        window.history.pushState('cart', 'Cart', '/cart')
+      }}>Cart</a>
       
     </div>
   );

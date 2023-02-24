@@ -16,7 +16,8 @@ export default function ToDoList(){
     }
 
     const removeItem = (index) => {
-        setItem(list.splice(index, 1))
+        setItem(list.splice(index, 1));
+        
     }
 
     return(
