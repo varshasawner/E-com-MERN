@@ -13,23 +13,8 @@ function Navigation() {
 
   return (
     <div className="App">
-
-      {
-        activeComponent === "todo" && <ToDoList /> 
-      }
-
-      {
-        activeComponent === "github" && <GithubUserCard />
-      }
-
-      {
-        activeComponent === "calculator" && <Calculator />
-      }
-
-      {
-        activeComponent === "cart" && <Cart />
-      }
-      <a href="#" onClick={()=>{
+      <nav>
+    <a href="#" onClick={()=>{
         setActiveComponent("todo")
         window.history.pushState('todo', 'Todo', '/todo')
       }}>To-Do List</a>
@@ -46,6 +31,25 @@ function Navigation() {
         setActiveComponent("cart")
         window.history.pushState('cart', 'Cart', '/cart')
       }}>Cart</a>
+
+      </nav>
+
+      {
+        activeComponent === "todo" && <ToDoList /> 
+      }
+
+      {
+        activeComponent === "github" && <GithubUserCard />
+      }
+
+      {
+        activeComponent === "calculator" && <Calculator />
+      }
+
+      {
+        activeComponent === "cart" && <Cart />
+      }
+     
       
     </div>
   );
