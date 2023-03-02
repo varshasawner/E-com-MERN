@@ -25,3 +25,12 @@ nav a{
   margin-left: 13px;
   font-size: 20px;
 }
+.navbar{
+  width: 80%;
+  padding: 15px 25px;
+  background-color: rgb(13, 13, 70);
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  color: whitesmoke;
+}

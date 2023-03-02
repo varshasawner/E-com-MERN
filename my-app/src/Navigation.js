@@ -4,11 +4,13 @@ import {useState} from 'react';
 import Calculator from './component/Calculator';
 import GithubUserCard from './component/GithubUserCard';
 import Cart from './component/Cart';
+import MusicPlayer from './component/MusicPlayer';
 
 function Navigation() {
   const [todo, setTodo] = useState(false);
   const [calculator, setCalculator] = useState(false);
   const [github, setGithub] = useState(false);
+  const [player, setPlayer] = useState(false);
   const [activeComponent, setActiveComponent] = useState("todo");
 
   return (
@@ -32,6 +34,11 @@ function Navigation() {
         window.history.pushState('cart', 'Cart', '/cart')
       }}>Cart</a>
 
+      <a href="#" onClick={()=>{
+        setActiveComponent("player")
+        window.history.pushState('player', 'Player', '/player')
+      }}>Music Player</a>
+
       </nav>
 
       {
@@ -48,6 +55,10 @@ function Navigation() {
 
       {
         activeComponent === "cart" && <Cart />
+      }
+
+      {
+        activeComponent === "player" && <MusicPlayer />
       }
      
       
