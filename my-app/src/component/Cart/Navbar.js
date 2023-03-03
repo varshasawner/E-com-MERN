@@ -6,8 +6,10 @@ export default function Navbar(props) {
 	return (
 		<>
 			<div className="navbar">  
-				<div>Shopping</div>
-				<div>Cart <sup>{props.size}</sup></div>
+				<div className="navItem" onClick={()=>props.setShow(true)}>Shopping</div>
+				<div className="navItem" onClick={()=>props.setShow(false)}>Cart <sup>{props.size}</sup></div>
+
+				
 			</div>
 		</>
 	)

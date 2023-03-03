@@ -34,3 +34,16 @@ nav a{
   justify-content: space-between;
   color: whitesmoke;
 }
+.warning{
+  color:rgb(255, 255, 255);
+  background: rgb(64, 5, 5);
+  padding: 10px 16px;
+  position:absolute;
+  right: 172px;
+  top:123px;
+  font-size: 17px;
+}
+
+.navItem{
+  cursor: pointer;
+}
