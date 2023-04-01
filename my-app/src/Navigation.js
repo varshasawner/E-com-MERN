@@ -5,6 +5,7 @@ import Calculator from './component/Calculator';
 import GithubUserCard from './component/GithubUserCard';
 import Cart from './component/Cart';
 import MusicPlayer from './component/MusicPlayer';
+import Clock from './component/Clock';
 
 function Navigation() {
   const [todo, setTodo] = useState(false);
@@ -39,6 +40,11 @@ function Navigation() {
         window.history.pushState('player', 'Player', '/player')
       }}>Music Player</a>
 
+      <a href="#" onClick={()=>{
+        setActiveComponent("clock")
+        window.history.pushState('clock', 'Clock', '/clock')
+      }}>Clock</a>
+
       </nav>
 
       {
@@ -59,6 +65,10 @@ function Navigation() {
 
       {
         activeComponent === "player" && <MusicPlayer />
+      }
+
+      {
+        activeComponent === "clock" && <Clock />
       }
      
       
