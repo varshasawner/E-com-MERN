@@ -5,13 +5,11 @@ import Calculator from './component/Calculator';
 import GithubUserCard from './component/GithubUserCard';
 import Cart from './component/Cart';
 import MusicPlayer from './component/MusicPlayer';
-import Clock from './component/Clock';
+// import Clock from './component/Clock_one';
+import Anologclock from './component/AnologClock';
 
 function Navigation() {
   const [todo, setTodo] = useState(false);
-  const [calculator, setCalculator] = useState(false);
-  const [github, setGithub] = useState(false);
-  const [player, setPlayer] = useState(false);
   const [activeComponent, setActiveComponent] = useState("todo");
 
   return (
@@ -40,10 +38,15 @@ function Navigation() {
         window.history.pushState('player', 'Player', '/player')
       }}>Music Player</a>
 
-      <a href="#" onClick={()=>{
+      {/* <a href="#" onClick={()=>{
         setActiveComponent("clock")
         window.history.pushState('clock', 'Clock', '/clock')
-      }}>Clock</a>
+      }}>Clock</a> */}
+
+      <a href="#" onClick={()=>{
+        setActiveComponent("anologclock")
+        window.history.pushState('anologclock', 'Anologclock', '/anologclock')
+      }}>Anolog Clock</a>
 
       </nav>
 
@@ -68,7 +71,11 @@ function Navigation() {
       }
 
       {
-        activeComponent === "clock" && <Clock />
+        // activeComponent === "clock" && <Clock />
+      }
+
+      {
+        activeComponent === "anologclock" && <Anologclock />
       }
      
       

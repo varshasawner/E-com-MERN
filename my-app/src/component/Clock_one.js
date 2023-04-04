@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Clock(){
+function Clock(){
     const [time, setTime] = useState("");
 
     // let start = () => {
@@ -14,7 +14,6 @@ export default function Clock(){
     const stop = () => {
         clearInterval(setClock);
     }
-
 
     return ( 
         <>
