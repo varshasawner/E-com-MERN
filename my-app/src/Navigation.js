@@ -7,6 +7,7 @@ import Cart from './component/Cart';
 import MusicPlayer from './component/MusicPlayer';
 // import Clock from './component/Clock_one';
 import Anologclock from './component/AnologClock';
+import Cart1 from './component/Cart1.js';
 
 function Navigation() {
   const [todo, setTodo] = useState(false);
@@ -63,7 +64,7 @@ function Navigation() {
       }
 
       {
-        activeComponent === "cart" && <Cart />
+        activeComponent === "cart" && <Cart1 />
       }
 
       {

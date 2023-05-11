@@ -1,4 +1,7 @@
-
+*{
+  margin: 0px;
+  padding: 0px;
+}
 .App {
   text-align: center;
 }
@@ -46,4 +49,24 @@ nav a{
 
 .navItem{
   cursor: pointer;
+}
+
+.cursor{
+  cursor: pointer;
+}
+.errMsg{
+  background-color: rgb(74, 24, 24);
+  color:wheat;
+  padding:5px;
+  animation: hide 2s;
+  position: absolute;
+  right:0px;
+  top:90px;
+}
+.tab{
+  margin: auto;
+}
+
+th{
+  padding: 25px;
 }
