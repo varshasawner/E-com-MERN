@@ -53,25 +53,20 @@ export default function ToDoList() {
           </button>
           </div>
           </div>
-          <table class="table-auto mx-auto mt-5">
-            <tbody>
-              <tr>
+          <ol class="mx-auto mt-5 w-72">
               {list.map((a, index) => {
               return (
-                <tr>
-                <td key={index}>
+               
+                <li key={index} className="py-1 px-3 m-3 bg-yellow-200 rounded-sm">
                   {a} 
-                  <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 ml-4 rounded" onClick={() => removeItem(index)}>
+                  {/* <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-1 ml-4 rounded float-right">Edit</button> */}
+                  <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-1 ml-4 rounded float-right" onClick={() => removeItem(index)}>
                     <RiDeleteBin5Line></RiDeleteBin5Line>
                   </button>
-                </td>
-                </tr>
+                </li>
               );
             })}
-              </tr>
-              
-            </tbody>
-          </table>
+              </ol>     
     </div>
   );
 }
